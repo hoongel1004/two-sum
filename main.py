@@ -1,11 +1,7 @@
 from typing import List
 
 def twoSum(nums: List[int], target: int) -> List[int]:
-    nums_map = {}
-    for i, num in enumerate(nums):
-        nums_map[num] = i
-
-    for i, num in enumerate(nums):
-        if target - num in nums_map and i != nums_map[target - num]:
-            return [i, nums_map[target - num]]
-
+    for i in range(len(nums) - 1):
+        for j in range(i + 1, len(nums)):
+            if (nums[i] + nums[j]) == target:
+                return [i, j]
